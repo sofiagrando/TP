@@ -7,8 +7,8 @@ generar_archivo() {
     VAR=$((RANDOM % 3))
 
     if [ "$VAR" -eq 0 ]; then
-         ffmpeg -f lavfi -i "anoisesrc=a=0.1:c=white:duration=5" "$output_directory/audio_$i.wav"
-        contenido="$output_directory/audio_$i.wav"
+         ffmpeg -f lavfi -i "anoisesrc=a=0.1:c=white:duration=5" "$output_directory/audio.wav"
+        contenido="$output_directory/audio.wav"
         
         hash=$(md5sum "$contenido" | awk '{print $1}')  # Calcula el hash MD5 del contenido
         nombre_archivo="$output_directory/$hash.wav"  # si no pongo el .wav no crea audios
@@ -40,7 +40,6 @@ generar_archivo() {
 output_directory="outputs"
 mkdir -p "$output_directory" 
 
-# Genera cinco archivos llamando a la función cinco veces
-for i in {1..5}; do
-    generar_archivo
-done
+
+generar_archivo
+
