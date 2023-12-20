@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# generar_archivo(): calcula un numero random y dependiendo el que salga crea distintos tipos de archivos
+# siendo estos texto, imagen o audio, luego cambia lo renombra por si hash y lo añade a la carpeta outputs 
+
 generar_archivo() {
     VAR=$((RANDOM % 3))
 
@@ -8,36 +11,36 @@ generar_archivo() {
         contenido="$output_directory/audio_$i.wav"
         
         hash=$(md5sum "$contenido" | awk '{print $1}')  # Calcula el hash MD5 del contenido
-        nombre_archivo="$output_directory/$hash.wav"  # Construye el nombre del archivo con el hash y extensión .wav
+        nombre_archivo="$output_directory/$hash.wav"  # si no pongo el .wav no crea audios
+        nombre_nuevo="$output_directory/$hash"
 
         mv "$contenido" "$nombre_archivo"  # Mueve el archivo a su ubicación final
+        mv "$nombre_archivo" "$nombre_nuevo" 
 
     else 
         if [ "$VAR" -eq 1 ]; then
             convert -size 100x100 xc: +noise Random noise.png
             contenido=$(cat noise.png)
-            rm noise.png
+            rm noise.png #elimina el archivo temporal
         else
             base64 /dev/urandom | head -c 500 > file.txt
             contenido=$(cat file.txt)
             rm file.txt
         fi
 
-        hash=$(echo "$contenido" | md5sum | awk '{print $1}')  # Calcula el hash MD5 del contenido
+        hash=$(echo "$contenido" | md5sum | awk '{print $1}')
         nombre_archivo="$output_directory/$hash"  # Construye el nombre del archivo con el hash
     
     echo "$contenido" > "$nombre_archivo"  # Guarda el contenido en el archivo
     fi
     
-    echo "$contenido" > "$nombre_archivo"  # Guarda el contenido en el archivo
-    
     echo "Archivo generado: $nombre_archivo"
 }
 
 output_directory="outputs"
-mkdir -p "$output_directory"  # Crea la carpeta si no existe
+mkdir -p "$output_directory" 
 
 # Genera cinco archivos llamando a la función cinco veces
-for i in {1..8}; do
+for i in {1..5}; do
     generar_archivo
 done
