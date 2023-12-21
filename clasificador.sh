@@ -7,6 +7,9 @@
 
 carpeta="/home/chofi/Escritorio/TP/outputs"
 
+# clasificador(): recibe una ruta y clasifica archivos de audio, texto e imagenes separandolos 
+# en carpetas y cambiando su nombre por tipo_numero.extencion dependiendo de cual es.
+
 clasificador() {
     ruta=$1
     archivos=$(ls "$ruta")
@@ -43,6 +46,7 @@ clasificador() {
             ((imagen ++))
         fi
     done
+    tar -cvf outputs.tar outputs
 }
 
 

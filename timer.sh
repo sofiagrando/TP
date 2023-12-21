@@ -17,9 +17,9 @@ timer() {
         else
             echo "en un minuto se generara otro archivo"
         fi
-        
+
         sleep 1m
     done
 }
 
-timer 2
+#timer 8
