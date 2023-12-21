@@ -41,5 +41,4 @@ output_directory="outputs"
 mkdir -p "$output_directory" 
 
 
-generar_archivo
-
+#generar_archivo
