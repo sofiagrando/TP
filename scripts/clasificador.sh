@@ -5,7 +5,7 @@
 # archivos de texto file (text)
 
 
-carpeta="/home/chofi/Escritorio/TP/scripts/outputs"
+carpeta="./scripts/outputs"
 
 # clasificador(): recibe una ruta y clasifica archivos de audio, texto e imagenes separandolos 
 # en carpetas y cambiando su nombre por tipo_numero.extencion dependiendo de cual es.

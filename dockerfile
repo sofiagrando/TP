@@ -11,4 +11,4 @@ COPY scripts/ /scripts/
 WORKDIR /scripts/
 
 # Establece la entrada predeterminada al script del menú
-CMD ["bash", "tu_script_menu.sh"]
+CMD ["bash", "menu.sh"]

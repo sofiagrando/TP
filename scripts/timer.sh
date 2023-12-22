@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-source /home/chofi/Escritorio/TP/scripts/generador.sh
+source TP/scripts/generador.sh
 
 # timer(): recibe un numero n y ejecuta el generador de archivos n veces una vez por minuto.
 
