@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-source TP/scripts/generador.sh
+source ./generador.sh
 
 # timer(): recibe un numero n y ejecuta el generador de archivos n veces una vez por minuto.
 

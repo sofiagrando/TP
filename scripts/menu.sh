@@ -13,19 +13,19 @@ menu() {
         1)
             read -p "cuantos archivos quiere crear? " numero
             echo "esto llevara $numero minutos"
-            source ./scripts/timer.sh
+            source ./timer.sh
             timer "$numero"
-            source ./scripts/clasificador.sh
+            source ./clasificador.sh
             clasificador
             ;;
         
         2)
-            source TP/scripts/monitor.sh
+            source ./monitor.sh
             monitor
             ;;
     
         3)
-            source ./scripts/analizador_textos.sh
+            source ./analizador_textos.sh
             echo -e "\nsubmenu"
             echo "a. Longitud de palabras"
             echo "b. Palíndromos"
