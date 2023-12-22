@@ -10,10 +10,14 @@ if [ -e "$archivo" ]; then
     # Usa un bucle for para recorrer las palabras
     
     for palabra in $(cat "$archivo"); do
-        palabra_invertida=$(echo "$palabra" | rev)
-        
-        if true; then
-            echo "$palabra"
+        if [ ${#palabra} -gt 1 ]; then
+            palabra_invertida=$(echo "$palabra" | rev)
+            palabra=$(echo "$palabra" | tr '[:upper:]' '[:lower:]' | iconv -f utf-8 -t ascii//TRANSLIT)
+            palabra_invertida=$(echo "$palabra_invertida" | tr '[:upper:]' '[:lower:]' | iconv -f utf-8 -t ascii//TRANSLIT)
+
+            if [ "$palabra" == "$palabra_invertida" ]; then
+                echo "$palabra"
+            fi
         fi
     done
 
@@ -22,7 +26,6 @@ else
 fi
 }
 
-#palindromos "/home/chofi/Escritorio/TP/texto_ejemplo"
 
 # longitud(): recibe la ruta a un archivo de texto y devuelve la palabra mas larga, la
 # mas corta y el promedio de largo de las palabras.
