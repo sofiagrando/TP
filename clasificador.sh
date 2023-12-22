@@ -46,6 +46,7 @@ clasificador() {
             ((imagen ++))
         fi
     done
+    echo "comprimiendo en .tar"
     tar -cvf outputs.tar outputs
 }
 
