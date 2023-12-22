@@ -60,5 +60,7 @@ longitud() {
 
 mail() {
     ruta=$1
-    echo "mails"
+    separado=$(tr -s ' ' '\n' < "$ruta" | grep '\*\|\@\|\*\|\.com' | sort | uniq)
+    echo "$separado"
+
 }

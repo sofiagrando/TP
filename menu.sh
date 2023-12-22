@@ -36,15 +36,15 @@ menu() {
             
             case "$opcionn" in
                 "a") 
-                    longitud $ruta
+                    longitud "$ruta"
                     ;;
 
                 "b")
-                    echo "completar" 
+                    palindromos "$ruta"
                     ;;
 
                 "c")
-                    echo "completar"
+                    mail "$ruta"
                     ;;
 
                 "d")
