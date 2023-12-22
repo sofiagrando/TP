@@ -2,9 +2,10 @@
 
 menu() {
     echo "MENU DE OPCIONES"
-    echo "1. Procesar archivos"
-    echo "2. Monitoreo del sistema"
+    echo "1. Procesar archivos."
+    echo "2. Monitoreo del sistema."
     echo "3. Analizador de textos >"
+    echo "4. Salir."
 
     read -p "que accion desea realizar? " opcion
 
@@ -25,37 +26,46 @@ menu() {
     
         3)
             source /home/chofi/Escritorio/TP/analizador_textos.sh
-            echo "submenu"
+            echo -e "\nsubmenu"
             echo "a. Longitud de palabras"
             echo "b. Palíndromos"
             echo "c. Deteccion de direcciones de mail"
+            echo "d. Volver al menu principal."
             read -p "indique la ruta del archivo: " ruta
             read -p "que accion desea realizar? " opcionn
             
             case "$opcionn" in
                 "a") 
-                    #COMPLETAR
-                    echo "completar"
+                    longitud $ruta
                     ;;
+
                 "b")
                     echo "completar" 
                     ;;
+
                 "c")
                     echo "completar"
                     ;;
+
+                "d")
+                    menu
+                    ;;
+
                 *)
                     echo "vuelva a empezar"
                     menu
                     ;;
             esac
             ;;
+        4)
+            echo -e "\nVuelva prontos"
+            ;;
     
         *)
-            echo "opcion no valida."
+            echo -e "opcion no valida.\n"
             menu
             ;;
 
     esac
-
 }
 menu
