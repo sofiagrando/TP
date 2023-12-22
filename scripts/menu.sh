@@ -17,11 +17,13 @@ menu() {
             timer "$numero"
             source ./clasificador.sh
             clasificador
+            menu
             ;;
         
         2)
             source ./monitor.sh
             monitor
+            menu
             ;;
     
         3)
@@ -56,6 +58,7 @@ menu() {
                     menu
                     ;;
             esac
+            menu
             ;;
         4)
             echo -e "\nVuelva prontos"
